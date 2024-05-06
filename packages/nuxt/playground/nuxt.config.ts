@@ -1,7 +1,7 @@
 import { resolve } from 'node:path'
 import { defineNuxtConfig } from 'nuxt/config'
 
-const currentDir = new URL('.', import.meta.url).pathname
+// const currentDir = new URL('.', import.meta.url).pathname
 
 export default defineNuxtConfig({
   modules: ['@unocss/nuxt', '../src/module'],
@@ -11,8 +11,10 @@ export default defineNuxtConfig({
     // https://github.com/unjs/jiti/issues/136
     resolve: {
       alias: {
-        '@unlazy/core': `${resolve(currentDir, '../../core/src')}/`,
-        'unlazy': `${resolve(currentDir, '../../unlazy/src')}/`,
+        // '@unlazy/core': `${resolve(currentDir, '../../core/src')}/`,
+        // 'unlazy': `${resolve(currentDir, '../../unlazy/src')}/`,
+        'unlazy': resolve(__dirname, '../../unlazy/src'),
+        '@unlazy/core': resolve(__dirname, '../../core/src'),
       },
     },
 

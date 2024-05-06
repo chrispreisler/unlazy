@@ -16,9 +16,12 @@ const props = withDefaults(
     srcSet?: ImgHTMLAttributes['srcset']
     /** Image source URLs for different resolutions. This will render the `<picture>` element instead of `<img>`. */
     sources?: {
-      type: string
+      type?: string
       srcSet: string
       sizes?: string
+      media?: string
+      width?: string
+      height?: string
     }[]
     /**
      * A flag to indicate whether the sizes attribute should be automatically calculated.
@@ -138,6 +141,9 @@ onBeforeUnmount(() => {
       v-for="(source, index) in props.sources"
       :key="index"
       :type="source.type"
+      :media="source.media"
+      :width="source.width"
+      :height="source.height"
       :data-srcset="source.srcSet"
       :data-sizes="source.sizes"
     >
